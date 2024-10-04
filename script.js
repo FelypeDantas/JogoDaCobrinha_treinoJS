@@ -187,7 +187,7 @@ document.addEventListener("keydown", ({ key }) => {
     if (key == "ArrowUp" && direction != "down") {
         direction = "up"
     }
-})
+});
 
 buttonPlay.addEventListener("click", () => {
     score.innerText = "00"
@@ -195,4 +195,16 @@ buttonPlay.addEventListener("click", () => {
     canvas.style.filter = "none"
 
     snake = [initialPosition]
-})
+});
+
+// Define a largura e altura do canvas com base na tela
+const setCanvasSize = () => {
+    const size = Math.min(window.innerWidth * 0.9, 600);
+    canvas.width = size;
+    canvas.height = size;
+};
+
+setCanvasSize();
+
+// Redimensionar canvas quando a janela mudar de tamanho
+window.addEventListener("resize", setCanvasSize);
